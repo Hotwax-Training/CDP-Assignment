@@ -1,11 +1,11 @@
--------------------------------------------------------
--- Customer Data Access Logic (Pseudo-code)
+Customer Data Access Logic (Pseudo-code)
 -------------------------------------------------------
 
 -------------------------------------------------------
--- 1. CREATE NEW CUSTOMER
+ 1. CREATE NEW CUSTOMER
 -------------------------------------------------------
-function createCustomer(inputData):
+ function createCustomer(inputData):
+ 
     # Validate mandatory fields
     if inputData.firstName is empty OR inputData.email is empty:
         return error("Missing required fields: firstName or email")
@@ -47,9 +47,10 @@ function createCustomer(inputData):
 
 
 -------------------------------------------------------
--- 2. RETRIEVE CUSTOMER
+ 2. RETRIEVE CUSTOMER
 -------------------------------------------------------
 function getCustomer(partyId):
+
     # Find Party record
     party = find("Party").where(partyId == partyId).one()
     if not party:
@@ -75,9 +76,10 @@ function getCustomer(partyId):
 
 
 -------------------------------------------------------
--- 3. UPDATE CUSTOMER
+ 3. UPDATE CUSTOMER
 -------------------------------------------------------
 function updateCustomer(partyId, updatedData):
+
     # Verify existence
     existingParty = find("Party").where(partyId == partyId).one()
     if not existingParty:
@@ -118,9 +120,10 @@ function updateCustomer(partyId, updatedData):
 
 
 -------------------------------------------------------
--- 4. DELETE CUSTOMER
+ 4. DELETE CUSTOMER
 -------------------------------------------------------
 function deleteCustomer(partyId):
+
     # Verify existence
     customer = find("Party").where(partyId == partyId).one()
     if not customer:
